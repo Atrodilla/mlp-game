@@ -1,0 +1,1 @@
+MLPGame.Traits = {}

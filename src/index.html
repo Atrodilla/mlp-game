@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>Phaser Basic Project Template</title>
+
+  <!-- Utility functions -->
+  <script src="http://underscorejs.org/underscore-min.js"></script>
+  <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+
+  <!-- Phaser Game Library -->
+	<script src="assets/js/lib/phaser.js"></script>
+	
+	<!-- My Stuff -->
+	<script src="assets/js/boot.js"></script>
+	<script src="assets/js/Utils.js"></script>
+	<script src="assets/js/Board.js"></script>
+	<script src="assets/js/WorldObjects.js"></script>
+	<script src="assets/js/entities/Player.js"></script>
+	<script src="assets/js/entities/NPC.js"></script>
+	<script src="assets/js/ai.js"></script>
+	<script src="assets/js/ai/Default.js"></script>
+	<script src="assets/js/UI.js"></script>
+	<script src="assets/js/ui/Bar.js"></script>
+	<script src="assets/js/States.js"></script>
+	<script src="assets/js/states/Boot.js"></script>
+	<script src="assets/js/states/Preloader.js"></script>
+	<script src="assets/js/states/MainMenu.js"></script>
+	<script src="assets/js/states/Play.js"></script>
+</head>
+
+<body>
+  <div id="gameContainer"></div>
+
+  <script>
+		window.onload = function()
+		{
+			MLPGame.start( "gameContainer" );
+		};
+	</script>
+</body>
+
+</html>

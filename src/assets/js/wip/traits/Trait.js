@@ -1,0 +1,4 @@
+
+MLPGame.Traits.Trait = function () {
+
+}

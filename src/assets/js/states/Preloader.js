@@ -21,7 +21,8 @@ MLPGame.States.Preloader.prototype = {
 		//	These are the assets we loaded in Boot.js
 		//	A nice sparkly background and a loading progress bar
 		this.background = this.add.sprite( 0,   0,   'preloader_background' );
-		this.preloadBar = this.add.sprite( 300, 400, 'preloader_bar' );
+		this.preloadBar = this.add.sprite( 0, 0, 'preloader_bar' );
+		this.preloadBar.scale.x = 1.35;
 
 		//	This sets the preloadBar sprite as a loader sprite, basically
 		//	what that does is automatically crop the sprite from 0 to full-width
@@ -36,15 +37,18 @@ MLPGame.States.Preloader.prototype = {
 
 		//	Here we load most of the assets our game needs
 		var assets_dir = '/src/assets/';
+		var audio_dir  = assets_dir + 'audio/';
 		var maps_dir   = assets_dir + 'maps/';
 		var images_dir = assets_dir + 'images/';
 
 		///// Main Menu
+		this.load.audio( 'title', [ audio_dir + 'title.mp3' ] );
 		this.load.image( 'main_menu', images_dir + 'backgrounds/main_menu.png' );
 		this.load.image( 'logo', images_dir + 'ui/logo.png' );
 		this.load.spritesheet( 'play_button', images_dir + 'ui/buttons/play_button.png', 256, 64 );
 
 		//// Play
+		this.load.audio( 'song', [ audio_dir + 'melody2.mp3' ] );
 		this.load.tilemap( 'ponyville', maps_dir + 'ponyville.json', null, Phaser.Tilemap.TILED_JSON );
 		this.load.tileset( 'ponyville2', images_dir + 'tilesets/tileset.png', 32, 32 );
 
@@ -101,7 +105,7 @@ MLPGame.States.Preloader.prototype = {
 		
 		//	If you don't have any music in your game then put the game.state.start line into the create function and delete
 		//	the update function completely.
-		
+
 		if ( this.ready() )
 		{
 			this.game.state.start( MLPGame.States.MainMenu.key );
@@ -115,8 +119,7 @@ MLPGame.States.Preloader.prototype = {
 	ready: function ()
 	{
 
-		// return this.cache.isSoundDecoded('titleMusic')
-		return true;
+		return this.cache.isSoundDecoded( 'title' );
 
 	}
 

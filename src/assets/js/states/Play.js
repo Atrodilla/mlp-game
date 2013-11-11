@@ -51,6 +51,10 @@ MLPGame.States.Play.prototype = {
 
 	create: function () {
 
+		// Music
+		this.music = this.add.audio( 'song' );
+		this.music.play( '', 0, 1, true );
+
 		// Board
 		this.board = new MLPGame.Board();
 
@@ -359,7 +363,7 @@ MLPGame.States.Play.prototype = {
 
 	animate_selectors: function () {
 
-		var alpha = 0.75 + ( 0.125 * ( 1 + Math.sin( MLPGame.game.time.totalElapsedSeconds() * 5 ) ) );
+		var alpha = 0.75 + ( 0.125 * ( 1 + Math.sin( MLPGame.game.time.totalElapsedSeconds() * 12 ) ) );
 		this.selectors.forEach( function( selector ) {
 
 			selector.alpha = alpha;

@@ -13,8 +13,8 @@ MLPGame.States.MainMenu.prototype = {
 		//	Here all we're doing is playing some music and adding a picture and button
 		//	Naturally I expect you to do something significantly better :)
 
-		// this.music = this.add.audio('titleMusic');
-		// this.music.play();
+		this.music = this.add.audio( 'title' );
+		this.music.play();
 
 		// Background
 		this.add.sprite( 0, 0, 'main_menu' );
@@ -56,7 +56,7 @@ MLPGame.States.MainMenu.prototype = {
 	play: function( pointer ) {
 
 		//	Ok, the Play Button has been clicked or touched, so let's stop the music (otherwise it'll carry on playing)
-		// this.music.stop();
+		this.music.stop();
 
 		//	And start the actual game
 		this.game.state.start( MLPGame.States.Play.key );
